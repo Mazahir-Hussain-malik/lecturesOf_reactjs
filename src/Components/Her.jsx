@@ -46,14 +46,14 @@ function Her() {
         <div className="lg:w-[50%] w-[95%] mx-auto">
           <form
             action=""
-            className="flex flex-col justify-center items-center gap-y-[2rem]"
+            className="flex flex-col justify-center items-center gap-y-[2rem] py-4"
           >
             {inputsData.map(({ id, placeHoder, type }) => {
               return (
                 <input
                   key={id}
                   type={`${type}`}
-                  className="py-2 md:w-[50%] w-[100%] rounded-[15px] shadow-lg text-[20px] h-[5vh]"
+                  className="py-2 md:w-[50%] w-[100%] rounded-[15px] shadow-lg text-[20px] h-[5vh] text-gray-900"
                   placeholder={`${placeHoder}`}
                 />
               );

@@ -1,18 +1,50 @@
+import { useState } from "react";
+import { CiMenuFries } from "react-icons/ci";
+import { RxCross1 } from "react-icons/rx";
+
 function Nav() {
+  const [toggle, setToggle] = useState(true);
   const navLinks = ["Home", "About", "contact", "services", "Projects"];
+
+  function handleClick() {
+    setToggle(!toggle);
+    console.log(toggle);
+  }
 
   return (
     <>
-      <div className="flex justify-around bg-gray-900 py-8 shadow-xl">
+      <div className="flex justify-around bg-gray-900 py-8 shadow-xl md:flex-row flex-col">
         <div>
           <h2 className="text-[24px] font-bold">LOGO</h2>
         </div>
-        <div className="flex gap-[2rem] my-auto">
+
+        <div className="absolute right-5 top-5 md:hidden block">
+          {toggle ? (
+            <div className="text-[22px]">
+              <CiMenuFries onClick={handleClick} />
+            </div>
+          ) : (
+            <div className="text-[22px]">
+              <RxCross1 onClick={handleClick} />
+            </div>
+          )}
+        </div>
+
+        {/* menu for larage screen */}
+        <div
+          className={` ${
+            toggle
+              ? "hidden"
+              : "flex gap-[2rem] my-auto md:flex-row flex-col text-center"
+          }`}
+        >
           {navLinks.map((items, index) => {
             return <a key={index}>{items}</a>;
           })}
         </div>
       </div>
+
+      {/* mobile view  */}
     </>
   );
 }
