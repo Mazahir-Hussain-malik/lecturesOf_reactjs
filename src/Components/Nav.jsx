@@ -3,7 +3,7 @@ import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 
 function Nav() {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const navLinks = ["Home", "About", "contact", "services", "Projects"];
 
   function handleClick() {
