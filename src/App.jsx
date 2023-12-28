@@ -1,18 +1,21 @@
-import Nav from "./Components/Nav";
-import Her from "./Components/Her";
-import Cards from "./Components/Cards";
-import State from "./Components/State";
-import WordCounter from "./Components/WordCounter";
-import Expanse from "./Components/Expanse";
+import Home from "./Pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Counter from "./Pages/Counter";
+import ExpansePage from "./Pages/ExpansePage";
+import Apipage from "./Pages/Apipage";
+
 const App = () => {
   return (
-    <div className="bg-blue-900 text-[#fff]">
-      <Nav />
-      <Her />
-      <Cards />
-      <WordCounter />
-      <Expanse />
-    </div>
+    <BrowserRouter>
+      <div className="bg-blue-900 text-[#fff]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/counterapp" element={<Counter />} />
+          <Route path="/expanse" element={<ExpansePage />} />
+          <Route path="/api" element={<Apipage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 

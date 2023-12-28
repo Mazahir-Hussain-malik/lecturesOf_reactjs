@@ -1,10 +1,33 @@
 import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 function Nav() {
   const [toggle, setToggle] = useState(false);
-  const navLinks = ["Home", "About", "contact", "services", "Projects"];
+  const navLinks = [
+    {
+      id: 1,
+      LinkTo: "/",
+      title: "Home",
+    },
+    {
+      id: 2,
+      LinkTo: "/counterapp",
+      title: "Counter",
+    },
+    {
+      id: 3,
+      LinkTo: "/expanse",
+      title: "Expanse",
+    },
+    {
+      id: 4,
+      LinkTo: "/api",
+      title: "API",
+    },
+  ];
+  // "Home", "About", "contact", "services", "Projects";
 
   function handleClick() {
     setToggle(!toggle);
@@ -38,8 +61,12 @@ function Nav() {
               : "flex gap-[2rem] my-auto md:flex-row flex-col text-center"
           }`}
         >
-          {navLinks.map((items, index) => {
-            return <a key={index}>{items}</a>;
+          {navLinks.map(({ id, LinkTo, title }, index) => {
+            return (
+              <Link key={id} to={LinkTo}>
+                {title}
+              </Link>
+            );
           })}
         </div>
       </div>
